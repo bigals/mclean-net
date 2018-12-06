@@ -22,6 +22,10 @@ export class AppComponent {
         route: '/'
       },
       {
+        label: 'Blog',
+        route: '/blog'
+      },
+      {
         label: 'About',
         route: '/about'
       },
