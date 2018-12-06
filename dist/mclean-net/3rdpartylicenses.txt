@@ -330,6 +330,8 @@ MIT
 
 @angular/material/button
 
+@angular/material/sidenav
+
 @angular/material/toolbar
 
 @angular/material/icon

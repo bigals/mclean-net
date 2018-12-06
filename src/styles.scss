@@ -99,3 +99,11 @@ $mclean-net-theme: mat-light-theme($mclean-net-primary, $mclean-net-accent, $mcl
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mn-route-container {
+  margin: 20px 20px 10px 30px;
+}
+
+.route-header-margin {
+  margin-bottom: 15px;
+}

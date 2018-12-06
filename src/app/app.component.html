@@ -1,24 +1,38 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <button
-          mat-icon-button
-          color="accent"
-          routerLink="/"
-          routerLinkActive="active">
-            <mat-icon class="material-icons">menu</mat-icon>
-        </button>
+<mat-drawer-container class="mn-container" [hasBackdrop]="true">
+  <mat-drawer #globalMenu [mode]="'slide'">
+      <a *ngFor="let navElem of navBtns"
+        mat-raised-button
+        color="accent"
+        class="bucket-nav-elem"
+        routerLink="{{navElem.route}}"
+        (click)="globalMenu.close()">
+        {{navElem.label}}
+      </a>
+  </mat-drawer>
+  <mat-drawer-content>
+      <mat-toolbar color="primary">
+          <mat-toolbar-row>
+              <button
+                mat-icon-button
+                color="accent"
+                (click)="globalMenu.toggle()">
+                  <mat-icon class="material-icons">menu</mat-icon>
+              </button>
 
-        <span class="titlebar-font">bigals-dev</span>
-        <span class="example-spacer"></span>
+              <a class="titlebar-font" color="accent" routerLink="/">{{title}}</a>
+              <span class="example-spacer"></span>
 
-        <button mat-icon-button color="accent">
-            <mat-icon class="material-icons">mail_outline</mat-icon>
-        </button>
+              <button mat-icon-button color="accent" routerLink="/contact">
+                  <mat-icon class="material-icons">mail_outline</mat-icon>
+              </button>
 
-        <button mat-icon-button color="accent">
-            <mat-icon class="material-icons">help_outline</mat-icon>
-        </button>
-    </mat-toolbar-row>
-</mat-toolbar>
+              <button mat-icon-button color="accent" routerLink="/help">
+                  <mat-icon class="material-icons">help_outline</mat-icon>
+              </button>
+          </mat-toolbar-row>
+      </mat-toolbar>
 
-<router-outlet></router-outlet>
+      <router-outlet></router-outlet>
+
+  </mat-drawer-content>
+</mat-drawer-container>
