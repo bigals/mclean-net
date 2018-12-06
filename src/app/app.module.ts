@@ -16,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HelpComponent } from './help/help.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HelpComponent } from './help/help.component';
     AboutComponent,
     ContactComponent,
     NotFoundComponent,
-    HelpComponent
+    HelpComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
