@@ -33,7 +33,7 @@ phases:
     build:
         commands:
           - echo Start Build Phase on `date`
-          npm run dist
+          - npm run dist
           - echo End Build Phase on `date`
 
         finally:
