@@ -8,7 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dist": "ng build --prod=true --aot=true"
+    "dist": "ng build --prod=true --aot=true",
+    "ci:patch": "npm version patch && ",
+    "ci:minor": "npm version minor && ",
+    "ci:major": "npm version major && "
   },
   "private": true,
   "dependencies": {

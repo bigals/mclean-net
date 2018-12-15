@@ -17,9 +17,9 @@ phases:
           - npm run lint
           - echo End Linting
 
-          - echo Beginning Unit Tests
-          - npm run test
-          - echo End Unit Tests
+          # - echo Beginning Unit Tests
+          # - npm run test
+          # - echo End Unit Tests
 
           - echo Begin E2E Tests
           - npm run e2e
