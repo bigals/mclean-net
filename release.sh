@@ -3,7 +3,7 @@ echo "Deploying ${NPMVERSION}...."
 
 git add .
 git status
-git commit -m "releaseing version ${NPMVERSION}"
+git commit -m "releasing version ${NPMVERSION}"
 git tag ${NPMVERSION}
 git push
 git checkout release
