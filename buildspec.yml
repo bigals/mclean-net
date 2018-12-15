@@ -21,10 +21,10 @@ phases:
           # - npm run test
           # - echo End Unit Tests
 
-          - echo Begin E2E Tests
-          - npm run e2e
-          - echo End E2E Tests
-          - echo ---End Pre Build Phase on `date`---
+          # - echo Begin E2E Tests
+          # - npm run e2e
+          # - echo End E2E Tests
+          # - echo ---End Pre Build Phase on `date`---
 
         finally:
           - echo Start Pre Build Finally on `date`
