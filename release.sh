@@ -1,4 +1,5 @@
-NPMVERSION=node -pe "require('./package.json').version"
+NPMVERSION=$(sed -nE 's/^\s*"version": "(.*?)",$/\1/p' package.json)
+echo "Deploying ${NPMVERSION}...."
 
 git add .
 git status
@@ -8,3 +9,6 @@ git push
 git checkout release
 git merge ${NPMVERSION}
 git push
+git checkout master
+
+echo "Check-In Finished, AWS Build Pipeline Triggered"
