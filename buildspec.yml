@@ -53,8 +53,18 @@ phases:
           - echo ---Start Post Build Finally on `date`---
           - echo ---End Post Build Finally on `date`---
 
-# artifacts:
-#     files:
-#         - '**/*'
-#     discard-paths: yes
-#     base-directory: 'dist*'
+  artifacts:
+    files:
+      - '**/*.html'
+      - '**/*.js'
+      - '**/*.css'
+      - '**/*.ico'
+      - '**/*.woff'
+      - '**/*.woff2'
+      - '**/*.ttf'
+      - '**/*.eot'
+      - '**/*.ijmap'
+      - '**/*.svg'
+      - '**/codepoints'
+    discard-paths: yes
+    base-directory: 'dist/mclean-net'
