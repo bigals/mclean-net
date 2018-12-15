@@ -9,9 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dist": "ng build --prod=true --aot=true",
-    "prepRelease:patch": "npm version patch && ./createLocalTag.sh",
-    "prepRelease:minor": "npm version minor && ./createLocalTag.sh",
-    "prepRelease:major": "npm version major && ./createLocalTag.sh",
+    "prepRelease:patch": "npm version patch && createLocalTag.sh",
+    "prepRelease:minor": "npm version minor && createLocalTag.sh",
+    "prepRelease:major": "npm version major && createLocalTag.sh",
     "release": "./mergeToRelease.sh"
   },
   "private": true,
