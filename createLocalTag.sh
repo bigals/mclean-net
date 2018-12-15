@@ -1,6 +1,8 @@
 NPMVERSION=$(sed -nE 's/^\s*"version": "(.*?)",$/\1/p' package.json)
+GIT=`which git`
+${GIT} add package.json
+${GIT} add package-lock.json
 
-git add .
-git status
-git commit -m "releasing version ${NPMVERSION}"
-git tag ${NPMVERSION}
+${GIT} status
+${GIT} commit -m "releasing version ${NPMVERSION}"
+${GIT} tag ${NPMVERSION}
