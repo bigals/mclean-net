@@ -1,6 +1,6 @@
 {
   "name": "mclean-net",
-  "version": "1.1.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --progress=true --open=true --watch=true --port 9000",
