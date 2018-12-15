@@ -4,8 +4,13 @@ phases:
     install:
         commands:
           - echo ---Start Install Phase on `date`---
-          - npm install -g @angular/cli
-          - npm install
+            #Update Packages
+          - apt-get update
+          - #Headless Chrome
+          - echo Installing Chrome.......
+          - apt-get install -y fonts-liberation libasound2 libnspr4 libnss3 libx11-xcb1 xdg-utils libxssl libappindicator1 libindicator7
+          - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          - dpkg -i google-chrome*.deb
           - echo ---End Install Phase on `date`---
         finally:
           - echo ---Start Install Finally on `date`---
@@ -13,18 +18,11 @@ phases:
     pre_build:
         commands:
           - echo ---Start Pre Build Phase on `date`---
+          - npm install
+
           - echo Beginnning Linting
           - npm run lint
           - echo End Linting
-
-          # - echo Beginning Unit Tests
-          # - npm run test
-          # - echo End Unit Tests
-
-          # - echo Begin E2E Tests
-          # - npm run e2e
-          # - echo End E2E Tests
-          # - echo ---End Pre Build Phase on `date`---
 
         finally:
           - echo Start Pre Build Finally on `date`
@@ -34,6 +32,16 @@ phases:
         commands:
           - echo Start Build Phase on `date`
           - npm run dist
+
+          - echo Beginning Unit Tests
+          - npm run test:ci
+          - echo End Unit Tests
+
+          # - echo Begin E2E Tests
+          # - npm run e2e
+          # - echo End E2E Tests
+          # - echo ---End Pre Build Phase on `date`---
+
           - echo End Build Phase on `date`
 
         finally:
@@ -52,19 +60,3 @@ phases:
         finally:
           - echo ---Start Post Build Finally on `date`---
           - echo ---End Post Build Finally on `date`---
-
-  artifacts:
-    files:
-      - '**/*.html'
-      - '**/*.js'
-      - '**/*.css'
-      - '**/*.ico'
-      - '**/*.woff'
-      - '**/*.woff2'
-      - '**/*.ttf'
-      - '**/*.eot'
-      - '**/*.ijmap'
-      - '**/*.svg'
-      - '**/codepoints'
-    discard-paths: yes
-    base-directory: 'dist/mclean-net'

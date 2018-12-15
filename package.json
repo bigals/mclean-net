@@ -6,6 +6,7 @@
     "start": "ng serve --progress=true --open=true --watch=true --port 9000",
     "build": "ng build",
     "test": "ng test",
+    "test:ci": "ng test --browsers=ChromeHeadless --no-watch",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dist": "ng build --prod=true --aot=true",
