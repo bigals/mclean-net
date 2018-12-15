@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 
-export interface navBtns {
+// component
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+
+export interface NavBtns {
   label: string;
   route: string;
 }
@@ -12,9 +15,9 @@ export interface navBtns {
 
 export class AppComponent {
   public title: string;
-  public navBtns: navBtns[];
+  public navBtns: NavBtns[];
 
-  constructor () {
+  constructor (private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
     this.title = 'bigals-dev';
     this.navBtns = [
       {
@@ -42,5 +45,9 @@ export class AppComponent {
         route: '/contact'
       },
     ];
+    this.angulartics2GoogleAnalytics.startTracking();
+  }
+
+  $onInit() {
   }
 }

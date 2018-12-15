@@ -1,0 +1,60 @@
+version: 0.2
+
+phases:
+    install:
+        commands:
+          - echo ---Start Install Phase on `date`---
+          - npm install -g @angular/cli
+          - npm install
+          - echo ---End Install Phase on `date`---
+        finally:
+          - echo ---Start Install Finally on `date`---
+          - echo ---End Install Finally on `date`---
+    pre_build:
+        commands:
+          - echo ---Start Pre Build Phase on `date`---
+          - echo Beginnning Linting
+          - npm run lint
+          - echo End Linting
+
+          - echo Beginning Unit Tests
+          - npm run test
+          - echo End Unit Tests
+
+          - echo Begin E2E Tests
+          - npm run e2e
+          - echo End E2E Tests
+          - echo ---End Pre Build Phase on `date`---
+
+        finally:
+          - echo Start Pre Build Finally on `date`
+          - echo End Pre Build Finally on `date`
+
+    build:
+        commands:
+          - echo Start Build Phase on `date`
+          npm run dist
+          - echo End Build Phase on `date`
+
+        finally:
+          - echo Start Build Finally on `date`
+          - echo End Build Finally on `date`
+
+    post_build:
+        commands:
+          - echo ---Start Post Build Phase on `date`---
+          # # Clear S3 bucket.
+          # - aws s3 rm s3://bigals-dev.com --recursive
+          # - echo S3 bucket is cleared.
+          # # Copy dist folder to S3 bucket, As of Angular 6, builds are stored inside an app folder in distribution and not at the root of the dist folder
+          # - aws s3 cp dist s3://bigals-dev.com/ --recursive
+          - echo ---End Post Build Pase on `date`---
+        finally:
+          - echo ---Start Post Build Finally on `date`---
+          - echo ---End Post Build Finally on `date`---
+
+# artifacts:
+#     files:
+#         - '**/*'
+#     discard-paths: yes
+#     base-directory: 'dist*'
