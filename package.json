@@ -9,9 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dist": "ng build --prod=true --aot=true",
-    "ci:patch": "npm version patch && ",
-    "ci:minor": "npm version minor && ",
-    "ci:major": "npm version major && "
+    "ci:patch": "npm version patch && ./release.sh",
+    "ci:minor": "npm version minor && ./release.sh",
+    "ci:major": "npm version major && ./release.sh"
   },
   "private": true,
   "dependencies": {
