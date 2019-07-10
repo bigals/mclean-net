@@ -10,44 +10,42 @@ export interface NavBtns {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-
 export class AppComponent {
   public title: string;
   public navBtns: NavBtns[];
 
-  constructor (private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
+  constructor(private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
     this.title = 'bigals-dev';
     this.navBtns = [
       {
         label: 'Home',
-        route: '/'
-      },
-      {
-        label: 'Blog',
-        route: '/blog'
+        route: '/',
       },
       {
         label: 'About',
-        route: '/about'
+        route: '/about',
       },
       {
         label: 'Projects',
-        route: '/projects'
-      },
-      {
-        label: 'New Bigals game coming soon!',
-        route: ''
+        route: '/projects',
       },
       {
         label: 'Contact',
-        route: '/contact'
+        route: '/contact',
+      },
+      {
+        label: 'New Bigals game coming soon!',
+        route: '',
+      },
+      {
+        label: 'New app swap-board coming soon!',
+        route: '',
       },
     ];
     this.angulartics2GoogleAnalytics.startTracking();
   }
 
-  $onInit() {
-  }
+  $onInit() {}
 }
