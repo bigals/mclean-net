@@ -1,34 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { ContactComponent } from './contact/contact.component';
-import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { HelpComponent } from './help/help.component';
-import { BlogComponent } from './blog/blog.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule)
   },
   {
     path: 'projects',
-    component: ProjectsComponent
+    loadChildren: () => import('./projects/projects.module').then(mod => mod.ProjectsModule)
+
   },
   {
     path: 'contact',
-    component: ContactComponent
+    loadChildren: () => import('./contact/contact.module').then(mod => mod.ContactModule)
+
   },
   {
     path: 'about',
-    component: AboutComponent
+    loadChildren: () => import('./about/about.module').then(mod => mod.AboutModule)
   },
   {
     path: 'help',
-    component: HelpComponent
+    loadChildren: () => import('./help/help.module').then(mod => mod.HelpModule)
   },
   {
     path: 'resume',
