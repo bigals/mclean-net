@@ -31,8 +31,8 @@ const routes: Routes = [
     component: HelpComponent
   },
   {
-    path: 'blog',
-    component: BlogComponent
+    path: 'resume',
+    loadChildren: () => import('./resume/resume.module').then(mod => mod.ResumeModule)
   },
   {
     path: '404',
