@@ -28,6 +28,10 @@ export class AppComponent {
         route: '/about',
       },
       {
+        label: 'Resume',
+        route: '/resume',
+      },
+      {
         label: 'Projects',
         route: '/projects',
       },
