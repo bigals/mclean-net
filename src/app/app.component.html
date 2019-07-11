@@ -32,7 +32,11 @@
           </mat-toolbar-row>
       </mat-toolbar>
 
-      <router-outlet></router-outlet>
+        <router-outlet>
+            <div *ngIf="loading === true">
+              <mat-spinner class="mclean-router-spinner"></mat-spinner>
+            </div>
+        </router-outlet>
 
   </mat-drawer-content>
 </mat-drawer-container>

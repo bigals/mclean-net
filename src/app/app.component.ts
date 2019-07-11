@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 // component
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { Router, NavigationStart, RouterEvent, NavigationEnd, NavigationError, NavigationCancel } from '@angular/router';
 
 export interface NavBtns {
   label: string;
@@ -14,10 +15,15 @@ export interface NavBtns {
 })
 export class AppComponent {
   public title: string;
+  public loading: boolean;
   public navBtns: NavBtns[];
 
-  constructor(private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
+  constructor(
+    private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
+    private router: Router
+  ) {
     this.title = 'bigals-dev';
+    this.loading = false;
     this.navBtns = [
       {
         label: 'Home',
@@ -49,6 +55,16 @@ export class AppComponent {
       },
     ];
     this.angulartics2GoogleAnalytics.startTracking();
+
+    this.router.events.subscribe((event: RouterEvent) => {
+      if (event instanceof NavigationStart) {
+        this.loading = true;
+      } else if (event instanceof NavigationEnd ||
+          event instanceof NavigationCancel ||
+          event instanceof NavigationError) {
+            this.loading = false;
+      }
+      });
   }
 
   $onInit() {}
