@@ -1,24 +1,15 @@
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <input matInput placeholder="Name" formControlName="name" required [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
-    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-        <div *ngIf="f.name.errors.required">Name is required</div>
-    </div>
+    <input matInput placeholder="Name" formControlName="name" required />
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="E-mail" type="email" formControlName="email" required [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
-    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-        <div *ngIf="f.email.errors.required">E-mail is required</div>
-    </div>
+    <input matInput placeholder="E-mail" type="email" formControlName="email" required />
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Subject" formControlName="subject" [ngClass]="{ 'is-invalid': submitted && f.subject.errors }"/>
+    <input matInput placeholder="Subject" formControlName="subject" />
   </mat-form-field>
   <mat-form-field>
-    <textarea class="contactFormMessage"matNativeControl placeholder="Message" formControlName="message" required [ngClass]="{ 'is-invalid': submitted && f.message.errors }"></textarea>
-    <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
-        <div *ngIf="f.message.errors.required">Message is required</div>
-    </div>
+    <textarea class="contactFormMessage"matNativeControl placeholder="Message" formControlName="message" required></textarea>
   </mat-form-field>
   <br />
     <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid">Submit</button>
