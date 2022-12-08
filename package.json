@@ -46,7 +46,7 @@
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.1",
     "ecstatic": ">=2.2.2",
-    "http-server": "^0.11.1",
+    "http-server": "^0.11.2",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^4.1.0",
